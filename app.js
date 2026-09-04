@@ -146,6 +146,14 @@ document.addEventListener("click", event => {
 
   localStorage.setItem("reminders", JSON.stringify(reminders));
 
+  function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
   loadReminders();
 });
 
