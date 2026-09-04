@@ -1,0 +1,10 @@
+{
+  "name": "Special Needs 4 Special Needs",
+  "short_name": "Special Needs 4",
+  "description": "Practical support for special-needs families.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait"
+}
