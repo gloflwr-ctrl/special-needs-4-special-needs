@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f59e0b">
+  <meta name="description" content="Special Needs 4 Special Needs — practical support for special-needs families.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>Special Needs 4 Special Needs</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">❤</span><div><strong>Special Needs 4 Special Needs</strong><small>Support for families</small></div></div>
+    <div class="top-actions"><button id="accountBtn" class="ghost">Sign in</button><button id="installBtn" class="ghost hidden">Install</button></div>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">YOU'RE NOT ALONE</p>
+          <h1>How can we help today?</h1>
+          <p>Find support, keep important information close, and make everyday life a little easier.</p>
+        </div>
+      </div>
+      <button class="help-now" data-screen="help"><span>🆘</span><div><b>I Need Help Now</b><small>Get to support quickly</small></div><span>›</span></button>
+      <div class="grid">
+        <button class="card" data-screen="profile"><span>👨‍👩‍👧</span><b>Family Profile</b><small>Important family information</small></button>
+        <button class="card" data-screen="reminders"><span>⏰</span><b>Reminders</b><small>Appointments & routines</small></button>
+        <button class="card" data-screen="resources"><span>🔎</span><b>Resources</b><small>Find helpful services</small></button>
+        <button class="card" data-screen="support"><span>🤝</span><b>Family Support</b><small>Encouragement & connections</small></button>
+        <button class="card" data-screen="emergency"><span>🪪</span><b>Emergency Card</b><small>Quick-access information</small></button>
+      </div>
+    </section>
+
+    <section id="help" class="screen">
+      <button class="back" data-screen="home">← Back</button>
+      <h2>I Need Help Now</h2>
+      <p class="muted">Choose what you need. For an immediate life-threatening emergency, call 911.</p>
+      <a class="action danger" href="tel:911">📞 <span><b>Call 911</b><small>Emergency services</small></span></a>
+      <div class="panel">
+        <label>What kind of help do you need?</label>
+        <select id="helpType"><option>Caregiver support</option><option>Food or basic needs</option><option>Transportation</option><option>Housing</option><option>School support</option><option>Disability services</option><option>Other</option></select>
+        <label>Message (optional)</label>
+        <textarea id="helpMessage" rows="4" placeholder="Tell us what would help..."></textarea>
+        <button id="saveHelp" class="primary">Save Support Request</button>
+        <p id="helpSaved" class="success hidden">Saved on this device. A future connected backend can route this request to verified support staff.</p>
+      </div>
+    </section>
+
+    <section id="profile" class="screen">
+      <button class="back" data-screen="home">← Back</button><h2>Family Profile</h2>
+      <div class="panel">
+        <label>Parent/Caregiver name</label><input id="parentName" autocomplete="name">
+        <label>Child/family member name</label><input id="memberName">
+        <label>Important notes</label><textarea id="profileNotes" rows="5" placeholder="Communication needs, preferences, contacts, etc."></textarea>
+        <button id="saveProfile" class="primary">Save Profile</button>
+        <p id="profileSaved" class="success hidden">Saved securely on this device for this prototype.</p>
+      </div>
+    </section>
+
+    <section id="reminders" class="screen">
+      <button class="back" data-screen="home">← Back</button><h2>Reminders</h2>
+      <div class="panel">
+        <label>Reminder</label><input id="reminderText" placeholder="Therapy appointment">
+        <label>Date & time</label><input id="reminderDate" type="datetime-local">
+        <button id="addReminder" class="primary">Add Reminder</button>
+      </div>
+      <div id="reminderList" class="list"></div>
+    </section>
+
+    <section id="resources" class="screen">
+      <button class="back" data-screen="home">← Back</button><h2>Resources</h2>
+      <input id="resourceSearch" class="search" placeholder="Search resources...">
+      <div class="chips"><button data-filter="all">All</button><button data-filter="school">School</button><button data-filter="care">Care</button><button data-filter="financial">Financial</button></div>
+      <div id="resourceList" class="list"></div>
+      <p class="muted tiny">Production note: resource listings should be verified, dated, moderated, and locally maintained before launch.</p>
+    </section>
+
+    <section id="support" class="screen">
+      <button class="back" data-screen="home">← Back</button><h2>Family Support</h2>
+      <div class="panel">
+        <h3>Small steps count.</h3>
+        <p>You are doing important work. Use this space for supportive notes, trusted contacts, and community resources.</p>
+        <label>My support note</label><textarea id="supportNote" rows="5" placeholder="What do I need to remember today?"></textarea>
+        <button id="saveSupport" class="primary">Save Note</button>
+      </div>
+    </section>
+
+    <section id="emergency" class="screen">
+      <button class="back" data-screen="home">← Back</button><h2>Emergency Information Card</h2>
+      <p class="muted">Only enter information you are comfortable storing on this device. Do not rely on this prototype for emergency response.</p>
+      <div class="emergency-card" id="emergencyCard">
+        <h3>Emergency Information</h3>
+        <p><b>Name:</b> <span id="cardName">Not entered</span></p>
+        <p><b>Important information:</b> <span id="cardNotes">Not entered</span></p>
+        <p><b>Emergency contact:</b> <span id="cardContact">Not entered</span></p>
+      </div>
+      <div class="panel">
+        <label>Name</label><input id="emName">
+        <label>Important information</label><textarea id="emNotes" rows="4"></textarea>
+        <label>Emergency contact</label><input id="emContact" type="tel">
+        <button id="saveEmergency" class="primary">Save Emergency Card</button>
+      </div>
+    </section>
+
+    <section id="account" class="screen">
+      <button class="back" data-screen="home">← Back</button><h2>Your Account</h2>
+      <div class="panel">
+        <p id="authStatus" class="muted">Create an account or sign in to sync your family information securely with the app.</p>
+        <form id="authForm">
+          <label>Email</label><input id="authEmail" type="email" autocomplete="email" required>
+          <label>Password</label><input id="authPassword" type="password" autocomplete="current-password" minlength="8" required>
+          <button id="signInBtn" class="primary" type="submit">Sign In</button>
+          <button id="signUpBtn" class="ghost" type="button">Create Account</button>
+          <button id="resetPasswordBtn" class="ghost" type="button">Forgot Password?</button>
+          <button id="signOutBtn" class="danger-button hidden" type="button">Sign Out</button>
+        </form>
+        <p id="authMessage" class="success hidden"></p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottomnav">
+    <button data-screen="home">⌂<small>Home</small></button>
+    <button data-screen="resources">🔎<small>Resources</small></button>
+    <button data-screen="reminders">⏰<small>Reminders</small></button>
+    <button data-screen="profile">👤<small>Family</small></button>
+  </nav>
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
