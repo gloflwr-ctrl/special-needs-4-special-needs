@@ -1,4 +1,24 @@
+name: Build Android App
 
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -31,7 +51,7 @@
               }
           }
 
-          rootProject.name='SpecialNeeds4SpecialNeeds'
+          rootProject.name = 'SpecialNeeds4SpecialNeeds'
           include ':app'
           EOF
 
